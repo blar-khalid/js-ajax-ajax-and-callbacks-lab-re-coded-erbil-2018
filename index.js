@@ -11,7 +11,7 @@ var renderCommits = (data) => {
 }
 
 var showCommits = (el) => {
-  $.get(`https://api.github.com/repos/${el.dataset.owner}/${el.dataset.repository}/commits`, data => {
+  $.get(`https://github.com/blar-khalid/repos/${el.dataset.owner}/${el.dataset.repository}/commits`, data => {
     $('#details').html(renderCommits(data))
   }).fail(error => {
     displayError()
@@ -33,7 +33,7 @@ var renderSearchResults = (data) => data.items.map( result => renderSearchResult
 
 var searchRepositories = () => {
   const searchTerms = $('#searchTerms').val()
-  $.get(`https://api.github.com/search/repositories?q=${searchTerms}`, data => {
+  $.get(`https://github.com/blar-khalid/search/repositories?q=${searchTerms}`, data => {
       $('#results').html(renderSearchResults(data))
     }).fail(error => {
       displayError()
